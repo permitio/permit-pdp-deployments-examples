@@ -7,7 +7,7 @@ frameworks.
 
 - [X] [GCP Cloud Run](gcp)
 - [ ] AWS ECS
-- [ ] Kubernetes
+- [X] [Kubernetes (Raw YAMLs)](kubernetes)
 - [ ] Docker Compose
 - [ ] Azure Container Apps
 

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: permitio-pdp
+    run: permitio-pdp
+  name: permitio-pdp
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      run: permitio-pdp
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: permitio-pdp
+        run: permitio-pdp
+    spec:
+      containers:
+        - env:
+            - name: PDP_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: PDP_API_KEY
+                  name: permitio-pdp-secret
+          image: permitio/pdp-v2:latest
+          imagePullPolicy: Always
+          name: permitio-pdp
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
