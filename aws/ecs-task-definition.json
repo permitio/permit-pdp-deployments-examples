@@ -1,0 +1,84 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:XXX:task-definition/pdp-task-definition:1",
+  "containerDefinitions": [
+    {
+      "name": "pdp",
+      "image": "permitio/pdp-v2:latest",
+      "cpu": 256,
+      "memory": 512,
+      "portMappings": [
+        {
+          "containerPort": 7000,
+          "hostPort": 7000,
+          "protocol": "tcp"
+        },
+        {
+          "containerPort": 8181,
+          "hostPort": 8181,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [
+        {
+          "name": "PDP_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:<ACCOUNT ID>:secret:<SECRET NAME>:PDP_API_KEY::"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "public-pdp-log-group",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "stream"
+        }
+      }
+    }
+  ],
+  "family": "pdp-task-definition",
+  "taskRoleArn": "arn:aws:iam::<ACCOUNT ID>:role/pdp-execution-role",
+  "executionRoleArn": "arn:aws:iam::<ACCOUNT ID>:role/pdp-execution-role",
+  "networkMode": "awsvpc",
+  "revision": 3,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "ecs.capability.secrets.asm.environment-variables"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "registeredAt": "2023-09-27T13:03:49.273Z",
+  "registeredBy": "arn:aws:sts::<ACCOUNT ID>:assumed-role/<ASSUMED ROLE>/aws-go-sdk-<>",
+  "tags": []
+}
