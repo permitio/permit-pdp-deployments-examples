@@ -6,7 +6,7 @@ frameworks.
 ### List of examples:
 
 - [X] [GCP Cloud Run](gcp)
-- [ ] AWS ECS
+- [X] AWS ECS
 - [X] [Kubernetes (Raw YAMLs)](kubernetes)
 - [ ] Docker Compose
 - [ ] Azure Container Apps
