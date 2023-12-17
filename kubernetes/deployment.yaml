@@ -36,6 +36,34 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 7000
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          readinessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /healthy
+              port: 7000
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /ready
+              port: 7000
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            initialDelaySeconds: 30
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
