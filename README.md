@@ -10,6 +10,7 @@ frameworks.
 - [X] [Kubernetes (Raw YAMLs)](kubernetes)
 - [X] [Helm (Charts)](helm)
 - [X] [Terraform](terraform)
+- [X] [Pulumi](pulumi)
 - [ ] Docker Compose
 - [ ] Azure Container Apps
 
