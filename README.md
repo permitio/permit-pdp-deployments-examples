@@ -9,7 +9,7 @@ frameworks.
 - [X] AWS ECS
 - [X] [Kubernetes (Raw YAMLs)](kubernetes)
 - [X] [Helm (Charts)](helm)
-- [X] [Terraform]
+- [X] [Terraform](terraform)
 - [ ] Docker Compose
 - [ ] Azure Container Apps
 
