@@ -8,6 +8,8 @@ frameworks.
 - [X] [GCP Cloud Run](gcp)
 - [X] AWS ECS
 - [X] [Kubernetes (Raw YAMLs)](kubernetes)
+- [X] [Helm](kubernetes)
+- [X] [Terraform]
 - [ ] Docker Compose
 - [ ] Azure Container Apps
 
