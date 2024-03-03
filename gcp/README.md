@@ -50,3 +50,12 @@ You can see the logs of the deployment in the "Logs" tab, and if the deployment 
 ## YAML file
 We shared the YAML file that we used to deploy the PDP on GCP Cloud Run.
 Take a look at the file `cloud-run.yaml`.
+
+## Signal 6 in Cloud Run
+In some cases we encountered a behavior where Cloud Run unexpectedly interrupt the PDP container with a Signal 6 (SIGABRT).
+This behavior is caused by a CPU allocation setting from Cloud Run that causes background tasks processes (like the PDP), to de-allocate the CPU when not in use.
+This causes a termination of the container due to lack of CPU.
+
+To prevent this behavior, we added the `run.googleapis.com/cpu-throttling: false` annotation to the YAML.
+
+Read here for more information about CPU allocation settings in Cloud Run - https://cloud.google.com/run/docs/configuring/cpu-allocation
