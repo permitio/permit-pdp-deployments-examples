@@ -15,7 +15,7 @@ pdp_release = Release(
         version="0.0.2",
         namespace=pdp_namespace.metadata["name"],
         repository_opts=RepositoryOptsArgs(
-            repo="https://permitio.github.io/sidecar"
+            repo="https://permitio.github.io/PDP"
         ),
         values={
             "pdp": {

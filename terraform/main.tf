@@ -1,6 +1,6 @@
 resource "helm_release" "pdp" {
   name       = "pdp"
-  repository = "https://permitio.github.io/sidecar"
+  repository = "https://permitio.github.io/PDP"
   chart      = "pdp"
   version    = "0.0.2"
   namespace  = "pdp"  # Change the namespace if needed
