@@ -4,8 +4,8 @@
     {
       "name": "pdp",
       "image": "permitio/pdp-v2:latest",
-      "cpu": 256,
-      "memory": 512,
+      "cpu": 512,
+      "memory": 1024,
       "portMappings": [
         {
           "containerPort": 7000,
@@ -76,8 +76,11 @@
   "requiresCompatibilities": [
     "FARGATE"
   ],
-  "cpu": "256",
-  "memory": "512",
+  "cpu": "512",
+  "memory": "1024",
+  "runtimePlatform": {
+        "cpuArchitecture": "ARM64"
+    },
   "registeredAt": "2023-09-27T13:03:49.273Z",
   "registeredBy": "arn:aws:sts::<ACCOUNT ID>:assumed-role/<ASSUMED ROLE>/aws-go-sdk-<>",
   "tags": []
