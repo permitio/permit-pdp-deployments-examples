@@ -1,5 +1,5 @@
 # Deploying PDP on GCP Cloud Run
-Our PDP image runs on GCP Cloud Run without any modification. You can deploy it by using our public image on [Docker Hub](https://hub.docker.com/r/oryd/pdp).
+Our PDP image runs on GCP Cloud Run without any modification. You can deploy it by using our public image on [Docker Hub](https://hub.docker.com/r/permitio/pdp-v2).
 
 ## Step by step guide
 In the following step, we will show you how to deploy our PDP image on GCP Cloud Run,
